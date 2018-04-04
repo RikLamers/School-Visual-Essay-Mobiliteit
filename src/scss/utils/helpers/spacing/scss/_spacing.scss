@@ -1,0 +1,412 @@
+// stylelint-disable declaration-no-important
+
+// Margin and Padding
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+	@include media-breakpoint-up($breakpoint) {
+		$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+		@each $prop, $abbrev in (margin: m, padding: p) {
+			@each $size, $length in $spacers {
+				.#{$abbrev}#{$infix}-#{$size} {
+					#{$prop}: $length !important;
+				}
+				.#{$abbrev}t#{$infix}-#{$size},
+				.#{$abbrev}y#{$infix}-#{$size} {
+					#{$prop}-top: $length !important;
+				}
+				.#{$abbrev}r#{$infix}-#{$size},
+				.#{$abbrev}x#{$infix}-#{$size} {
+					#{$prop}-right: $length !important;
+				}
+				.#{$abbrev}b#{$infix}-#{$size},
+				.#{$abbrev}y#{$infix}-#{$size} {
+					#{$prop}-bottom: $length !important;
+				}
+				.#{$abbrev}l#{$infix}-#{$size},
+				.#{$abbrev}x#{$infix}-#{$size} {
+					#{$prop}-left: $length !important;
+				}
+			}
+		}
+
+		// Some special margin utils
+		.m#{$infix}-auto {
+			margin: auto !important;
+		}
+		.mt#{$infix}-auto,
+		.my#{$infix}-auto {
+			margin-top: auto !important;
+		}
+		.mr#{$infix}-auto,
+		.mx#{$infix}-auto {
+			margin-right: auto !important;
+		}
+		.mb#{$infix}-auto,
+		.my#{$infix}-auto {
+			margin-bottom: auto !important;
+		}
+		.ml#{$infix}-auto,
+		.mx#{$infix}-auto {
+			margin-left: auto !important;
+		}
+	}
+}
+
+$spacing-small: (
+	d: 1rem,
+	xs: 1.25rem,
+	sm: 1.5rem,
+	md: 2rem,
+	lg: 2.5rem,
+	xl: 3rem
+);
+
+$spacing-medium: (
+	d:  2rem,
+	xs: 2.5rem,
+	sm: 3rem,
+	md: 4rem,
+	lg: 5rem,
+	xl: 6rem
+);
+
+$spacing-large: (
+	d: 3rem,
+	xs: 4rem,
+	sm: 6rem,
+	md: 8rem,
+	lg: 10rem,
+	xl: 12rem
+);
+
+$spacing-reset: (
+	d: 0rem,
+	xs: 0rem,
+	sm: 0rem,
+	md: 0rem,
+	lg: 0rem,
+	xl: 0rem
+);
+
+@each $prop, $abbrev in (margin: m, padding: p) {
+	@each $breakpoint, $spacing in $spacing-small {
+		.#{$abbrev}-small {
+			@if $breakpoint == 'd' {
+				#{$prop}: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}: #{$spacing};
+				}
+			}
+		}
+
+		.#{$abbrev}-small-x {
+			@if $breakpoint == 'd' {
+				#{$prop}-left: #{$spacing};
+				#{$prop}-right: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}-left: #{$spacing};
+					#{$prop}-right: #{$spacing};
+				}
+			}
+		}
+
+		.#{$abbrev}-small-y {
+			@if $breakpoint == 'd' {
+				#{$prop}-top: #{$spacing};
+				#{$prop}-bottom: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}-top: #{$spacing};
+					#{$prop}-bottom: #{$spacing};
+				}
+			}
+		}
+
+		.#{$abbrev}-small-t {
+			@if $breakpoint == 'd' {
+				#{$prop}-top: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}-top: #{$spacing};
+				}
+			}
+		}
+
+		.#{$abbrev}-small-b {
+			@if $breakpoint == 'd' {
+				#{$prop}-bottom: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}-bottom: #{$spacing};
+				}
+			}
+		}
+
+		.#{$abbrev}-small-l {
+			@if $breakpoint == 'd' {
+				#{$prop}-left: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}-left: #{$spacing};
+				}
+			}
+		}
+
+		.#{$abbrev}-small-r {
+			@if $breakpoint == 'd' {
+				#{$prop}-right: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}-right: #{$spacing};
+				}
+			}
+		}
+	}
+}
+
+// MEDIUM SIZES
+@each $prop, $abbrev in (margin: m, padding: p) {
+	@each $breakpoint, $spacing in $spacing-medium {
+		.#{$abbrev}-medium {
+			@if $breakpoint == 'd' {
+				#{$prop}: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}: #{$spacing};
+				}
+			}
+		}
+
+		.#{$abbrev}-medium-x {
+			@if $breakpoint == 'd' {
+				#{$prop}-left: #{$spacing};
+				#{$prop}-right: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}-left: #{$spacing};
+					#{$prop}-right: #{$spacing};
+				}
+			}
+		}
+
+		.#{$abbrev}-medium-y {
+			@if $breakpoint == 'd' {
+				#{$prop}-top: #{$spacing};
+				#{$prop}-bottom: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}-top: #{$spacing};
+					#{$prop}-bottom: #{$spacing};
+				}
+			}
+		}
+
+		.#{$abbrev}-medium-t {
+			@if $breakpoint == 'd' {
+				#{$prop}-top: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}-top: #{$spacing};
+				}
+			}
+		}
+
+		.#{$abbrev}-medium-b {
+			@if $breakpoint == 'd' {
+				#{$prop}-bottom: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}-bottom: #{$spacing};
+				}
+			}
+		}
+
+		.#{$abbrev}-medium-l {
+			@if $breakpoint == 'd' {
+				#{$prop}-left: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}-left: #{$spacing};
+				}
+			}
+		}
+
+		.#{$abbrev}-medium-r {
+			@if $breakpoint == 'd' {
+				#{$prop}-right: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}-right: #{$spacing};
+				}
+			}
+		}
+	}
+}
+
+// LARGE SIZES
+@each $prop, $abbrev in (margin: m, padding: p) {
+	@each $breakpoint, $spacing in $spacing-large {
+		.#{$abbrev}-large {
+			@if $breakpoint == 'd' {
+				#{$prop}: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}: #{$spacing};
+				}
+			}
+		}
+
+		.#{$abbrev}-large-x {
+			@if $breakpoint == 'd' {
+				#{$prop}-left: #{$spacing};
+				#{$prop}-right: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}-left: #{$spacing};
+					#{$prop}-right: #{$spacing};
+				}
+			}
+		}
+
+		.#{$abbrev}-large-y {
+			@if $breakpoint == 'd' {
+				#{$prop}-top: #{$spacing};
+				#{$prop}-bottom: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}-top: #{$spacing};
+					#{$prop}-bottom: #{$spacing};
+				}
+			}
+		}
+
+		.#{$abbrev}-large-t {
+			@if $breakpoint == 'd' {
+				#{$prop}-top: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}-top: #{$spacing};
+				}
+			}
+		}
+
+		.#{$abbrev}-large-b {
+			@if $breakpoint == 'd' {
+				#{$prop}-bottom: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}-bottom: #{$spacing};
+				}
+			}
+		}
+
+		.#{$abbrev}-large-l {
+			@if $breakpoint == 'd' {
+				#{$prop}-left: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}-left: #{$spacing};
+				}
+			}
+		}
+
+		.#{$abbrev}-large-r {
+			@if $breakpoint == 'd' {
+				#{$prop}-right: #{$spacing};
+			} @else {
+				@media (min-width: breakpoint-min(#{$breakpoint})) {
+					#{$prop}-right: #{$spacing};
+				}
+			}
+		}
+	}
+}
+
+
+
+// RESET SPACINGS
+@each $prop, $abbrev in (margin: m, padding: p) {
+
+		.#{$abbrev}-reset {
+			#{$prop}: 0 !important;
+		}
+
+		.#{$abbrev}-reset-x {
+			#{$prop}-left: 0 !important;
+			#{$prop}-right: 0 !important;
+		}
+
+		.#{$abbrev}-reset-y {
+			#{$prop}-top: 0 !important;
+			#{$prop}-bottom: 0 !important;
+		}
+
+		.#{$abbrev}-reset-t {
+			#{$prop}-top: 0 !important;
+		}
+
+		.#{$abbrev}-reset-b {
+			#{$prop}-bottom: 0 !important;
+
+		}
+
+		.#{$abbrev}-reset-l {
+			#{$prop}-left: 0 !important;
+		}
+
+	.#{$abbrev}-reset-r {
+		#{$prop}-right: 0 !important;
+	}
+}
+
+// MIN MARGIN-TOP
+
+.m-min-t {
+	margin-top: -30px;
+
+	@media (min-width: breakpoint-min(md)) {
+		margin-top: -140px;
+	}
+}
+
+.m-min-t--md {
+
+	@media (min-width: breakpoint-min(md)) {
+		margin-top: -140px;
+	}
+}
+
+.p-block {
+	padding: 15px;
+
+	 @media (min-width: breakpoint-min(lg)) {
+		padding: 20px;
+	 }
+}
+
+.m-bottom-sm-and-below {
+	@media (max-width: breakpoint-max(xs)) {
+		margin-bottom: 10px;
+	}
+
+	@media (max-width: breakpoint-max(sm)) {
+		margin-bottom: 16px;
+	}
+}
+
+.m-bottom-md-and-below {
+	@media (max-width: breakpoint-max(xs)) {
+		margin-bottom: 10px;
+	}
+
+	@media (max-width: breakpoint-max(sm)) {
+		margin-bottom: 16px;
+	}
+
+	@media (max-width: breakpoint-max(md)) {
+		margin-bottom: 20px;
+	}
+}

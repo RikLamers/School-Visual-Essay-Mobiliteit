@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+/* =============================================================================
+  CONFIG
+============================================================================= */
+
+/* =============================================================================
+  BASE
+============================================================================= */
+
+.img-h--full {
+	height: 350px;
+
+	@media (min-width: breakpoint-min(xs)) {
+		height: 375px;
+	}
+
+	@media (min-width: breakpoint-min(sm)) {
+		height: 425px;
+	}
+
+	@media (min-width: breakpoint-min(md)) {
+		height: 475px;
+	}
+
+	@media (min-width: breakpoint-min(lg)) {
+		height: 500px;
+	}
+
+	@media (min-width: breakpoint-min(xl)) {
+		height: 550px;
+	}
+}
+
+.img-h--content {
+	float: left !important;
+}
+
+

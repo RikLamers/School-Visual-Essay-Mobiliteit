@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+/* =============================================================================
+MIXIN: TRANSITION ANIMATION
+USEAGE: @include transition(color, 200ms, ease-in-out);
+============================================================================= */
+
+@mixin transition($property, $timing, $ease) {
+  transition: $property $timing $ease;
+  -webkit-transition: $property $timing $ease;
+  -moz-transition: $property $timing $ease;
+  -o-transition: $property $timing $ease;
+}

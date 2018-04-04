@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+/* =============================================================================
+  CONFIG
+============================================================================= */
+
+$body-bg: map-get($colors, white);
+$wrapper-bg: map-get($colors, white);
+$content-bg: map-get($colors, white);
+$sidebar-bg: none;
+$footer-bg: map-get($colors, orange);
+
+$topbar-bg: map-get($colors, orange);
+$topbar-height: 40px;
+
+$header-bg: map-get($colors, white);
+$header-height: 110px;
+$header-mobile-height: 70px;
+
+
+/* =============================================================================
+  BASE
+============================================================================= */
+
+body {
+	background: $body-bg;
+}
+
+#l-skip-to-main {
+	display: block;
+	padding: 1rem;
+	color: map-get($colors, white);
+	background-color: $header-bg;
+	outline: 0;
+
+	.l-skiplink-text {
+		padding: 0.5rem;
+		outline: 1px dotted;
+	}
+}
+
+#l-wrapper {
+	background: $wrapper-bg;
+	@include clearfix();
+	padding-top: $header-mobile-height;
+
+	@media (min-width: breakpoint-min(lg)) {
+		padding-top: 0;
+	}
+}
+
+#l-topbar {
+	height: $topbar-height;
+	background: $topbar-bg;
+	display: none;
+
+	@media (min-width: breakpoint-min(lg)) {
+		display: block;
+	}
+}
+
+#l-header {
+	height: $header-mobile-height;
+	background: $header-bg;
+	@include clearfix();
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+
+	@media (min-width: breakpoint-min(lg)) {
+		height: $header-height;
+		box-shadow: none;
+	}
+}
+
+#l-content {
+	background: $content-bg;
+}
+
+#l-sidebar {
+	background: $sidebar-bg;
+}
+
+#l-footer {
+	background: $footer-bg;
+	@include clearfix();
+}

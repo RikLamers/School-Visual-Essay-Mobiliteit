@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+/* =============================================================================
+FUNCTION: STRIP UNIT TYPES OF VALUE
+USEAGE: @include strip-unit(32em); // OUTPUT 32
+REFERENCE: https://css-tricks.com/snippets/sass/strip-unit-function/
+============================================================================= */
+
+@function strip-unit($number) {
+
+  @if type-of($number) == 'number' and not unitless($number) {
+
+    @return $number / ($number * 0 + 1);
+
+  }
+
+  @return $number;
+}

@@ -1,0 +1,7 @@
+/* =============================================================================
+	GRID CONTAINERS
+  	Define the maximum width of `.container` for different screen sizes.
+============================================================================= */
+
+$container-max-widths: (xs: 480px, sm: 540px, md: 720px, lg: 960px, xl: 1140px)
+	!default;

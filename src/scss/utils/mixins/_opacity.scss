@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+/* =============================================================================
+MIXIN: CROSSBROWSER OPACITY TO IE5
+USEAGE: @include opacity(0.8);
+============================================================================= */
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+/* =============================================================================
+MIXIN: CLEARFIX ON ELMENT, ADD BEFORE AND AFTER PSUEDO ELMENTS
+USEAGE: @include clearfix();
+REFERENCE:
+============================================================================= */
+
+@mixin clearfix() {
+	
+    &:before {
+        display: table;
+        content: "";
+    }
+
+    &:after {
+        display: table;
+        clear: both;
+        content: "";
+    }
+}

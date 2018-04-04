@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+/* =============================================================================
+CONFIG
+============================================================================= */
+
+$layout-name: 'grid';
+$grid-column-gap: 15px;
+$grid-row-gap: 15px;
+$grid-column-padding: 15px;
+
+/* =============================================================================
+BASE
+============================================================================= */
+
+.l-#{$layout-name} {
+	width: 100%;
+	display: grid;
+	display: -ms-grid;
+	grid-column-gap: $grid-column-gap;
+	grid-row-gap: $grid-row-gap;
+	grid-template-columns: repeat(12, 1fr);
+
+	@for $i from 1 through 12 {
+		.l-#{$layout-name}__col-#{$i} {
+			grid-column: span #{$i};
+			padding: $grid-column-padding;
+		}
+	}
+}

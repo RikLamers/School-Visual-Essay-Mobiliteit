@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+/* =============================================================================
+CONFIG
+============================================================================= */
+$container-maxwidth: 1170px;
+@include _assert-ascending($grid-breakpoints, '$grid-breakpoints');
+@include _assert-starts-at-zero($grid-breakpoints);
+
+@include _assert-ascending($container-max-widths, '$container-max-widths');
+
+/* =============================================================================
+SELECTOR: CONTAINER WIDTHS
+DESCRIPTION: Set the container width, and override it for fixed navbars in media queries.
+============================================================================= */
+
+@if $enable-grid-classes {
+	.l-container {
+		max-width: $container-maxwidth;
+		@include make-container();
+		// @include make-container-max-widths();
+	}
+}
+
+/* =============================================================================
+SELECTOR: FLUID CONTAINER
+DESCRIPTION: Utilizes the mixin meant for fixed width containers,
+			but with 100% width for fluid, full width layouts.
+============================================================================= */
+
+@if $enable-grid-classes {
+	.l-container--fluid {
+		@include make-container();
+	}
+}
+
+/* =============================================================================
+SELECTOR: ROW
+DESCRIPTION: Rows contain and clear the floats of your columns.
+============================================================================= */
+
+@if $enable-grid-classes {
+	.l-row {
+		@include make-row();
+	}
+
+	// Remove the negative margin from default .l-row, then the horizontal padding
+	// from all immediate children columns (to prevent runaway style inheritance).
+	.l-no-gutters {
+		margin-right: 0;
+		margin-left: 0;
+
+		> .col,
+		> [class*='col-'] {
+			padding-right: 0;
+			padding-left: 0;
+		}
+	}
+}
+
+/* =============================================================================
+SELECTOR: COLUMNS
+DESCRIPTION: Common styles for small and large grid columns
+============================================================================= */
+
+@if $enable-grid-classes {
+	@include make-grid-columns();
+}
+
+/* =============================================================================
+SELECTOR: COLUMNS
+DESCRIPTION: Fixing floating the columns next to each other
+============================================================================= */
+
+.ie9 [class*='col-'] {
+	display: inline-block;
+	float: left;
+}
