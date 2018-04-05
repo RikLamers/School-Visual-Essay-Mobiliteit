@@ -387,6 +387,19 @@ $spacing-reset: (
 	 }
 }
 
+.p-section {
+	padding: 2px;
+
+	@media (min-width: breakpoint-min(sm)) {
+		padding: 40px;
+	}
+
+	@media (min-width: breakpoint-min(lg)) {
+		padding: 60px;
+	}
+
+}
+
 .m-bottom-sm-and-below {
 	@media (max-width: breakpoint-max(xs)) {
 		margin-bottom: 10px;
