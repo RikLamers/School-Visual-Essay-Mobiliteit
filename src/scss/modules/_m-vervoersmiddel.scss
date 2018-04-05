@@ -1,0 +1,17 @@
+$module-name:           'vervoersmiddel';
+
+
+.m-#{$module-name} {
+    background-color: $gray;
+    
+    &__title {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: center;
+    }
+
+}

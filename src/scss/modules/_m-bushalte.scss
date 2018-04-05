@@ -1,0 +1,19 @@
+$module-name:           'bushalte';
+
+.m-#{$module-name} {
+    position: relative;
+
+    &__content {
+
+        &__title {
+            text-align: center;
+        }
+
+        &__nederland {
+            background-color: $green;
+            flex-direction: column;
+        }
+
+    }
+
+}

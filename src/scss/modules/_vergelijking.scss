@@ -1,0 +1,23 @@
+$module-name:           'vergelijking';
+
+.m-#{$module-name} {
+    position: relative;
+
+    &__content {
+
+        &__title {
+            text-align: center;
+        }
+
+        &__limburg {
+            background-color: $gray;
+            flex-direction: column;
+        }
+
+        &__nederland {
+            flex-direction: column;
+        }
+
+    }
+
+}

@@ -1,0 +1,17 @@
+$module-name:           'intro';
+
+
+.m-#{$module-name} {
+    background-color: $green;
+    
+    &__title {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: center;
+    }
+
+}
