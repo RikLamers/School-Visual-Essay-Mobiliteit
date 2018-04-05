@@ -423,3 +423,16 @@ $spacing-reset: (
 		margin-bottom: 20px;
 	}
 }
+
+.p-paragraph {
+	padding: 15px;
+
+	@media (min-width: breakpoint-min(md)) {
+		padding: 30px;
+	}
+
+	@media (min-width: breakpoint-min(lg)) {
+		padding: 45px;
+	}
+
+}
