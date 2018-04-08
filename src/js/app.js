@@ -15,13 +15,31 @@ const yellowColor = '#ffe066';
 const blueColor = '#247ba0';
 
 const tooltip = d3
-        .select('body')
-        .append('div')
-        .attr('class', 'chart__tooltip')
-        .style('position', 'absolute')
-        .style('z-index', '10')
-        .style('visibility', 'hidden')
-        .style('opacity', 0);
+    .select('body')
+    .append('div')
+    .attr('class', 'chart__tooltip')
+    .style('position', 'absolute')
+    .style('z-index', '10')
+    .style('visibility', 'hidden')
+    .style('opacity', 0);
+
+    let resizeTimer;
+    $(window).resize(function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(doResize, 200);
+    });
+
+    function doResize() {
+        rebuildOnResize();
+    }
+
+    function rebuildOnResize() {
+        // Remove graph
+        const averageKMGraph = document.getElementById('linegraphSVG');
+        linegraphSVG.remove();
+        // Build graph again
+        setProppertiesAndAppendSVG(averageKM, 'linegraph-average');
+    }
 
 setProppertiesAndAppendSVG(averageKM, 'linegraph-average');
 
@@ -52,7 +70,7 @@ function setProppertiesAndAppendSVG(data) {
     const lineChartSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     lineChartSvg.setAttribute('width', width + margin.right + margin.left);
     lineChartSvg.setAttribute('height', height + margin.top + margin.bottom);
-    lineChartSvg.setAttribute('class', 'linegraphSVG');
+    lineChartSvg.setAttribute('id', 'linegraphSVG');
     lineChartSvg.setAttribute('style', `padding: ${margin.top}px ${margin.right}px ${margin.bottom}px ${margin.left}px`);
 
     graphDiv.appendChild(lineChartSvg);
@@ -100,7 +118,7 @@ function buildLineGraph(data, propperties) {
         })
     );
 
-    const svg = d3.select('.linegraphSVG');
+    const svg = d3.select('#linegraphSVG');
 
     // Set propperties for x-axis
     const x = d3.scaleTime()
