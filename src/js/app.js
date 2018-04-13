@@ -12,6 +12,7 @@ import * as $ from 'jquery';
 
 // IMPORT DATA
 import { averageKM } from '../data/js/gemiddeld_aantal_km_per_inwoner';
+import { averageBus } from '../data/js/buslijnen_per_provincie';
 
 // Create base tooltip
 const tooltip = d3
@@ -38,7 +39,7 @@ function doResize() {
 // Function to remove graphs and build them again.
 function rebuildOnResize() {
     // Remove linegraph
-    const averageKMGraph = document.getElementById('linegraphSVG');
+    const averageKMGraph = document.getElementById('linegraph-averageSVG');
     averageKMGraph.remove();
 
     // Build linegraph again
@@ -46,3 +47,4 @@ function rebuildOnResize() {
 }
 
 base.setProppertiesAndAppendSVG(averageKM, 'linegraph-average');
+base.setProppertiesAndAppendSVG(averageBus, 'choropleth');
