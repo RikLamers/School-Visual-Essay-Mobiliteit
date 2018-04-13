@@ -18,7 +18,7 @@ export const averageBus = {
         "buslijnen": 335
       },
       {
-        "provincie": "Drente",
+        "provincie": "Drenthe",
         "buslijnen": 69
       },
       {
@@ -38,7 +38,7 @@ export const averageBus = {
         "buslijnen": 155
       },
       {
-        "provincie": "Overijsel",
+        "provincie": "Overijssel",
         "buslijnen": 142
       },
       {
