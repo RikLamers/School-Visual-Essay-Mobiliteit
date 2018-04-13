@@ -1,4 +1,5 @@
 import { buildLineGraph } from './multilinegraph';
+import { buildChoropleth } from './choropleth';
 
 // Global color variables
 export const limburgColor = 'rgba(112, 192, 179, .75)';
@@ -8,6 +9,7 @@ export const grayColor = '#e6e6e6';
 export const lightGrayColor = '#f2f2f2';
 export const yellowColor = '#ffe066';
 export const blueColor = '#247ba0';
+export const greenColor = '#84cdc9';
 
 // Function to render all base elements for the line graph.
 export function setProppertiesAndAppendSVG(data) {
@@ -34,14 +36,23 @@ export function setProppertiesAndAppendSVG(data) {
         height: height
     };
 
-    const lineChartSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    lineChartSvg.setAttribute('width', width + margin.right + margin.left);
-    lineChartSvg.setAttribute('height', height + margin.top + margin.bottom);
-    lineChartSvg.setAttribute('id', 'linegraphSVG');
-    lineChartSvg.setAttribute('style', `padding: ${margin.top}px ${margin.right}px ${margin.bottom}px ${margin.left}px`);
+    const chartSVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    chartSVG.setAttribute('width', width + margin.right + margin.left);
+    chartSVG.setAttribute('height', height + margin.top + margin.bottom);
+    // ID KLOPT NIET, NIET GENERIEK
+    chartSVG.setAttribute('id',  data.name + 'SVG');
+    chartSVG.setAttribute('style', `padding: ${margin.top}px ${margin.right}px ${margin.bottom}px ${margin.left}px`);
 
-    graphDiv.appendChild(lineChartSvg);
+    graphDiv.appendChild(chartSVG);
 
-    buildLineGraph(data.data, baseProps);
+    switch(data.name) {
+        case 'choropleth':
+            buildChoropleth(data.data, baseProps);
+            return;
+        
+        case 'linegraph-average':
+            buildLineGraph(data.data, baseProps);
+            return;
+    }
 
 }
