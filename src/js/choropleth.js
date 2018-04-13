@@ -30,7 +30,10 @@ export function buildChoropleth(data, propperties) {
 
     const svg = d3.select('#choroplethSVG');
 
-    d3.json('/src/data/js/nld.json').then(function(nld) {
+    //Prodution
+    d3.json('/nld.json').then(function(nld) {
+    //Development
+    // d3.json('/src/data/js/nld.json').then(function(nld) {
 
         let l = topojson.feature(nld, nld.objects.subunits).features[3],
         b = path.bounds(l),
