@@ -17,10 +17,6 @@ export function buildChoropleth(data, propperties) {
         localData.push(newData);
     }
 
-    console.log(localData);
-    
-    // const color = d3.scaleOrdinal(d3.schemeCategory10);
-
     const color = d3.scaleThreshold()
         .domain(d3.range(2, 10))
         .range(d3.schemeBlues[9]);
