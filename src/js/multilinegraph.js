@@ -1,5 +1,6 @@
 import * as d3 from 'd3';
 import * as base from './base';
+import * as $ from 'jquery';
 
 export function buildLineGraph(data, propperties) {
 
@@ -39,7 +40,7 @@ export function buildLineGraph(data, propperties) {
         })
     );
 
-    const svg = d3.select('#linegraphSVG');
+    const svg = d3.select('#linegraph-averageSVG');
 
     // Set propperties for x-axis
     const x = d3.scaleTime()
@@ -71,7 +72,7 @@ export function buildLineGraph(data, propperties) {
     svg
         .append('path')
         .attr('d', lineGen(dataLimburg))
-        .attr('stroke', base.limburgColor)
+        .attr('stroke', base.greenColor)
         .attr('stroke-width', 3)
         .attr('fill', 'none');
 
