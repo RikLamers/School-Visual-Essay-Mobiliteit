@@ -61,9 +61,9 @@ export function buildChoropleth(data, propperties) {
         
                     const tooltipValue = () => {
                         return (
-                            '<div style="background-color: ' + base.yellowColor + '; padding: 9px; border-radius: 5px; text-align: center;"><div>Aantal buslijnen: ' +
+                            '<div style="background-color: ' + base.yellowColor + '; padding: 9px; border-radius: 5px; text-align: center;"><div style="font-family: Roboto Light;">Aantal buslijnen: ' +
                             localData[i].buslijnen +
-                            '</div><div style="height: 1px; width: 100%; background-color: ' + base.blackColor + '; margin: 5px 0;"></div><div>' +
+                            '</div><div style="height: 1px; width: 100%; background-color: ' + base.blackColor + '; margin: 5px 0;"></div><div style="font-family: Roboto Light;">' +
                             localData[i].provincie +
                             '</div></div>'
                         );
