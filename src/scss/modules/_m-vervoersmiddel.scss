@@ -2,11 +2,23 @@ $module-name:           'vervoersmiddel';
 
 
 .m-#{$module-name} {
-    background-color: $gray;
     
     &__title {
         display: flex;
         justify-content: center;
+
+        &--limburg {
+            color: $green;
+        }
+
+        &--nederland {
+            color: $red
+        }
+
+    }
+
+    &__text {
+        background-color: $light-gray;
     }
 
     &__content {
@@ -33,6 +45,7 @@ $module-name:           'vervoersmiddel';
     -webkit-appearance: none;
     height: 15px;
     border-radius: 7px;
+    background-color: $light-gray;
 }
 #filter__barchart-inside-out::-webkit-slider-thumb {
     -webkit-appearance: none;
