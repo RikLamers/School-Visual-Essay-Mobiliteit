@@ -97,8 +97,8 @@ export function buildBarchartInsideOut(data, properties, filter) {
             })
             .on('mousemove', function () {
                 return d3.select('.chart__tooltip')
-                            .style('top', on_event.pageY - 10 + 'px')
-                            .style('left', on_event.pageX + 10 + 'px')
+                            .style('top', d3.event.pageY - 10 + 'px')
+                            .style('left', d3.event.pageX + 10 + 'px')
                             .style('cursor', 'default');
             })
             .on('mouseout', function (d, i) {
@@ -144,8 +144,8 @@ export function buildBarchartInsideOut(data, properties, filter) {
             })
             .on('mousemove', function () {
                 return d3.select('.chart__tooltip')
-                            .style('top', on_event.pageY - 10 + 'px')
-                            .style('left', on_event.pageX + 10 + 'px')
+                            .style('top', d3.event.pageY - 10 + 'px')
+                            .style('left', d3.event.pageX + 10 + 'px')
                             .style('cursor', 'default');
             })
             .on('mouseout', function (d, i) {
