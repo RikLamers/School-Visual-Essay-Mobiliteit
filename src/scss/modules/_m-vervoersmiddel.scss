@@ -12,6 +12,46 @@ $module-name:           'vervoersmiddel';
     &__content {
         display: flex;
         justify-content: center;
+
+        &__text {
+
+            p {
+                color: $black!important;
+            }
+            
+        }    
+
     }
 
+}
+
+#filter__barchart-inside-out {
+    position: relative;
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+    -webkit-appearance: none;
+    height: 15px;
+    border-radius: 7px;
+}
+#filter__barchart-inside-out::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    background-color: $blue;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+
+    &:hover {
+        width: 25px;
+        height: 25px;
+    }
+
+}
+
+#slider-value {
+    text-align: center;
+    margin-bottom: 1.6rem;
 }
