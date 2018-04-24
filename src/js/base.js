@@ -1,5 +1,6 @@
 import { buildLineGraph } from './multilinegraph';
 import { buildChoropleth } from './choropleth';
+import { buildBarchartInsideOut } from './barchart-inside-out';
 
 // Global color variables
 export const limburgColor = 'rgba(112, 192, 179, .75)';
@@ -12,7 +13,7 @@ export const blueColor = '#247ba0';
 export const greenColor = '#84cdc9';
 
 // Function to render all base elements for the line graph.
-export function setProppertiesAndAppendSVG(data) {
+export function setProppertiesAndAppendSVG(data, filter = '2010') {
 
     const margin = {
         top: 80,
@@ -39,13 +40,13 @@ export function setProppertiesAndAppendSVG(data) {
     const chartSVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     chartSVG.setAttribute('width', width + margin.right + margin.left);
     chartSVG.setAttribute('height', height + margin.top + margin.bottom);
-    // ID KLOPT NIET, NIET GENERIEK
     chartSVG.setAttribute('id',  data.name + 'SVG');
     chartSVG.setAttribute('style', `padding: ${margin.top}px ${margin.right}px ${margin.bottom}px ${margin.left}px`);
 
     graphDiv.appendChild(chartSVG);
 
     switch(data.name) {
+        
         case 'choropleth':
             buildChoropleth(data.data, baseProps);
             return;
@@ -53,6 +54,11 @@ export function setProppertiesAndAppendSVG(data) {
         case 'linegraph-average':
             buildLineGraph(data.data, baseProps);
             return;
-    }
+
+        case 'barchart-inside-out':
+            buildBarchartInsideOut(data.data, baseProps, filter);
+            return;
+
+    };
 
 }
