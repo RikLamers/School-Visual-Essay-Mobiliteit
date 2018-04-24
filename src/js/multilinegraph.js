@@ -55,11 +55,13 @@ export function buildLineGraph(data, propperties) {
     // Add the X Axis
     svg.append("g")
         .attr("transform", "translate(0," + propperties.height + ")")
+        .style('font-family', 'Roboto Light')
         .call(d3.axisBottom(x));
 
     // Add the Y Axis
     svg.append("g")
-        .call(d3.axisLeft(y));
+        .call(d3.axisLeft(y))
+        .style('font-family', 'Roboto Light');
 
     const lineGen = d3.line()
         .x(d => {
@@ -72,7 +74,7 @@ export function buildLineGraph(data, propperties) {
     svg
         .append('path')
         .attr('d', lineGen(dataLimburg))
-        .attr('stroke', base.greenColor)
+        .attr('stroke', base.limburgColor)
         .attr('stroke-width', 3)
         .attr('fill', 'none');
 
@@ -111,9 +113,9 @@ export function buildLineGraph(data, propperties) {
 
             const tooltipValue = () => {
                 return (
-                    '<div style="background-color: ' + base.yellowColor + '; padding: 9px; border-radius: 5px; text-align: center;"><div>Jaar: ' +
+                    '<div style="background-color: ' + base.yellowColor + '; padding: 9px; border-radius: 5px; text-align: center;"><div style="font-family: Roboto Light;">Jaar: ' +
                     d.Jaar +
-                    '</div><div style="height: 1px; width: 100%; background-color: ' + base.blackColor + '; margin: 5px 0;"></div><div>Waarde: ' +
+                    '</div><div style="height: 1px; width: 100%; background-color: ' + base.blackColor + '; margin: 5px 0;"></div><div style="font-family: Roboto Light;">Waarde: ' +
                     d.Gemiddelde +
                     '</div></div>'
                 );
@@ -133,5 +135,35 @@ export function buildLineGraph(data, propperties) {
                 .style('opacity', 0)
                 .style('visibility', 'hidden');
         });
+
+
+        // Legenda
+        svg.append('rect')
+            .attr('x', propperties.width + 40)
+            .attr('y', 0)
+            .attr('width', 19)
+            .attr('height', 19)
+            .attr('fill', base.limburgColor);
+
+        svg.append('text')
+            .attr('x', propperties.width - 25)
+            .attr('y', '9')
+            .attr('dy', '5.12px')
+            .style('font-family', 'Roboto Light')
+            .text('Limburg');
+
+        svg.append('rect')
+            .attr('x', propperties.width + 40)
+            .attr('y', 30)
+            .attr('width', 19)
+            .attr('height', 19)
+            .attr('fill', base.netherlandsColor);
+
+        svg.append('text')
+            .attr('x', propperties.width - 40)
+            .attr('y', '39')
+            .attr('dy', '5.12px')
+            .style('font-family', 'Roboto Light')
+            .text('Nederland');
 
 }
