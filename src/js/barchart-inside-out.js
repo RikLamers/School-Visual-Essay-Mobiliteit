@@ -24,25 +24,37 @@ export function buildBarchartInsideOut(data, properties, filter) {
             localData.push(result);
         }
     }
-    var svg = d3.select('#barchart-inside-outSVG');
+    const svg = d3.select('#barchart-inside-outSVG');
     
-    var x = d3.scaleLinear()
+    const x = d3.scaleLinear()
         .rangeRound([0, properties.width / 2 - 70]);
 
-    var xLeft = d3.scaleLinear()
+    const xLeft = d3.scaleLinear()
         .rangeRound([0, properties.width / 2 - 70]);
 
-    var y = d3.scaleLinear()
+    const y = d3.scaleLinear()
         .rangeRound([properties.height, 0])
         .domain([0, 100]);
-    
-    x.domain([0, Math.ceil(d3.max(localData, function (d) {
-        return d.nederland;
-    }) / 100) * 100]);
-    
-    xLeft.domain([Math.ceil(d3.max(localData, function (d) {
+
+    const limburgMax = d3.max(localData, function(d) {
         return d.limburg;
-    }) / 1000) * 1000, 0]);
+    });
+
+    const nederlandMax = d3.max(localData, function(d) {
+        return d.nederland;
+    });
+
+    var maxValue = function() {
+        if (limburgMax > nederlandMax) {
+            return limburgMax;
+        } else {
+            return nederlandMax;
+        }
+    };
+    
+    x.domain([0, Math.ceil(maxValue() / 1000) * 1000]);
+    
+    xLeft.domain([Math.ceil(maxValue() / 1000) * 1000, 0]);
     
     var colours = d3.scaleOrdinal()
         .range(['#FF6B6B', '#FFE66D']);
