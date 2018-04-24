@@ -2,7 +2,10 @@ $module-name:           'kilometers';
 
 
 .m-#{$module-name} {
-    background-color: $gray;
+
+    &__text {
+        background-color: $light-gray;
+    }
     
     &__title {
         display: flex;
