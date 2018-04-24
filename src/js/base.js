@@ -3,14 +3,14 @@ import { buildChoropleth } from './choropleth';
 import { buildBarchartInsideOut } from './barchart-inside-out';
 
 // Global color variables
-export const limburgColor = 'rgba(112, 192, 179, .75)';
-export const netherlandsColor = '#f25f5c';
+export const limburgColor = '#84cdc9';
+export const netherlandsColor = '#e98073';
 export const blackColor = '#50514F';
 export const grayColor = '#e6e6e6';
 export const lightGrayColor = '#f2f2f2';
-export const yellowColor = '#ffe066';
+export const yellowColor = '#fbe8a6';
 export const blueColor = '#247ba0';
-export const greenColor = '#84cdc9';
+export const greenColor = '#d2eceb';
 
 // Function to render all base elements for the line graph.
 export function setProppertiesAndAppendSVG(data, filter = '2010') {
