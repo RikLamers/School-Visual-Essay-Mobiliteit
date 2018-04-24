@@ -101,7 +101,7 @@ export function buildBarchartInsideOut(data, properties, filter) {
                     
                 const tooltipValue = () => {
                     return (
-                        '<div style="background-color: ' + base.yellowColor + '; padding: 9px; border-radius: 5px; text-align: center;"><div>Gemiddeld km/inwoner: ' + d.nederland + '</div><div style="height: 1px; width: 100%; background-color: ' + base.blackColor + '; margin: 5px 0;"></div><div>Vervoerswijze: ' + d.vervoerswijze + '</div><div style="height: 1px; width: 100%; background-color: ' + base.blackColor + '; margin: 5px 0;"></div>' + '<div>Nederland</div></div>'
+                        '<div style="background-color: ' + base.yellowColor + '; padding: 9px; border-radius: 5px; text-align: center;"><div style="font-family: Roboto Light;">Gemiddeld km/inwoner: ' + d.nederland + '</div><div style="height: 1px; width: 100%; background-color: ' + base.blackColor + '; margin: 5px 0;"></div><div style="font-family: Roboto Light;">Vervoerswijze: ' + d.vervoerswijze + '</div><div style="height: 1px; width: 100%; background-color: ' + base.blackColor + '; margin: 5px 0;"></div>' + '<div style="font-family: Roboto Light;">Nederland</div></div>'
                     );
                 }
 
@@ -171,11 +171,13 @@ export function buildBarchartInsideOut(data, properties, filter) {
             svg.append('g')
                 .attr('class', 'x axis right')
                 .call(d3.axisTop(x))
-                .attr('transform', 'translate(' + widthRightAxis + ', 0)');
+                .attr('transform', 'translate(' + widthRightAxis + ', 0)')
+                .style('font-family', 'Roboto Light');
                 
             svg.append('g')
                 .attr('class', 'x axis left')
                 .call(d3.axisTop(xLeft))
-                .attr('transform', 'translate(35, 0)');
+                .attr('transform', 'translate(35, 0)')
+                .style('font-family', 'Roboto Light');
 
 }
